@@ -15,7 +15,7 @@ public final class ResponseHandler {
         Map<String, Object> responseBody = new HashMap<>();
         Map<String, Object> objectBody = new HashMap<>();
 
-        objectBody.put("deviceId", responseObj.getId());
+        objectBody.put("deviceId", responseObj.getDeviceId());
         objectBody.put("mac", responseObj.getMac());
         responseBody.put("status", status.value());
         responseBody.put("data", objectBody);
