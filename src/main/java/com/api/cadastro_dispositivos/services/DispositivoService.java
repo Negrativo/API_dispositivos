@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class DispositivoService {
@@ -24,5 +25,9 @@ public class DispositivoService {
         } catch (Exception e) {
             return ResponseHandler.generateResponse(HttpStatus.BAD_REQUEST, e.getMessage());
         }
+    }
+
+    public List<Dispositivo> getAll() {
+        return dispositivoRepository.findAll();
     }
 }
