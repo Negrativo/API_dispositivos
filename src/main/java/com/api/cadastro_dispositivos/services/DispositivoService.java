@@ -19,10 +19,10 @@ public class DispositivoService {
     @Transactional
     public ResponseEntity<Object> save(Dispositivo dispositivo) {
         try {
-            Dispositivo dispositivoSave = dispositivoRepository.save(dispositivo);
-            return ResponseHandler.generateResponse(HttpStatus.CREATED, dispositivoSave);
+            Dispositivo dispositivoSaved = dispositivoRepository.save(dispositivo);
+            return ResponseHandler.generateResponse(HttpStatus.CREATED, dispositivoSaved);
         } catch (Exception e) {
-            return ResponseHandler.generateResponse(HttpStatus.MULTI_STATUS, e.getMessage());
+            return ResponseHandler.generateResponse(HttpStatus.BAD_REQUEST, e.getMessage());
         }
     }
 }
