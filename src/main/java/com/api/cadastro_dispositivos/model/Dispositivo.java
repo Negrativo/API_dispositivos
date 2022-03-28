@@ -16,7 +16,7 @@ public class Dispositivo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long deviceId;
+    private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -38,7 +38,7 @@ public class Dispositivo {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         Dispositivo that = (Dispositivo) o;
-        return deviceId != null && Objects.equals(deviceId, that.deviceId);
+        return id != null && Objects.equals(id, that.id);
     }
 
     @Override

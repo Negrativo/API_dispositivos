@@ -9,25 +9,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
-@RequestMapping("/dispositivos")
+@RequestMapping("/dispositivo")
 public class DispositivosController {
 
     @Autowired
     DispositivoService dispositivoService;
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid DispositivoDto dispositivoDto) {
         var dispositivo = new Dispositivo();
         BeanUtils.copyProperties(dispositivoDto, dispositivo);
         return dispositivoService.save(dispositivo);
-    }
-
-    @GetMapping
-    public List<Dispositivo> getAll() {
-        return dispositivoService.getAll();
     }
 
 }
