@@ -5,18 +5,18 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity
+@Setter
 @Getter
-@RequiredArgsConstructor
-@Table(name = "tb_dispositivos")
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "TB_DISPOSITIVOS")
 public class Dispositivo {
 
     @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;
