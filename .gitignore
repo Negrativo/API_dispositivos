@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+/data/mnesia/
+/data/.erlang.cookie
