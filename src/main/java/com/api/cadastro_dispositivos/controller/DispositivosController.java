@@ -35,4 +35,11 @@ public class DispositivosController {
         return dispositivoService.findById(deviceId);
     }
 
+    @PutMapping(value="/{deviceId}")
+    public ResponseEntity<Dispositivo> update(@PathVariable long deviceId,
+                                          @RequestBody DispositivoDto dispositivoDto){
+        return dispositivoService.updateById(deviceId, dispositivoDto);
+
+    }
+
 }
