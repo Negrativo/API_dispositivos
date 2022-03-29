@@ -54,4 +54,12 @@ public class DispositivoService {
                 }).orElse(ResponseEntity.notFound().build());
     }
 
+    @Transactional
+    public ResponseEntity<Object> deleteById(Long deviceId) {
+        return dispositivoRepository.findById(deviceId)
+                .map(device -> {
+                    dispositivoRepository.deleteById(device.getDeviceId());
+                    return ResponseEntity.ok().build();
+                }).orElse(ResponseEntity.notFound().build());
+    }
 }

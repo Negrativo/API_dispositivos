@@ -42,4 +42,10 @@ public class DispositivosController {
 
     }
 
+    @DeleteMapping(value="/{deviceId}")
+    public ResponseEntity<Object> deleteById(@PathVariable long deviceId){
+        return dispositivoService.deleteById(deviceId);
+
+    }
+
 }
