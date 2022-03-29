@@ -30,4 +30,22 @@ public class DispositivosController {
         return dispositivoService.getAll();
     }
 
+    @GetMapping("/{deviceId}")
+    public ResponseEntity<Dispositivo> findById(@PathVariable Long deviceId){
+        return dispositivoService.findById(deviceId);
+    }
+
+    @PutMapping(value="/{deviceId}")
+    public ResponseEntity<Dispositivo> update(@PathVariable long deviceId,
+                                          @RequestBody DispositivoDto dispositivoDto){
+        return dispositivoService.updateById(deviceId, dispositivoDto);
+
+    }
+
+    @DeleteMapping(value="/{deviceId}")
+    public ResponseEntity<Object> deleteById(@PathVariable long deviceId){
+        return dispositivoService.deleteById(deviceId);
+
+    }
+
 }
