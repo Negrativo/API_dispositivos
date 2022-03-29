@@ -31,7 +31,7 @@ public class DispositivosController {
     }
 
     @GetMapping("/{deviceId}")
-    public Dispositivo getById(@PathVariable("deviceId") Long deviceId){
+    public ResponseEntity<Dispositivo> findById(@PathVariable Long deviceId){
         return dispositivoService.findById(deviceId);
     }
 
