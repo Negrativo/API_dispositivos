@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/dispositivos")
@@ -28,6 +29,11 @@ public class DispositivosController {
     @GetMapping
     public List<Dispositivo> getAll() {
         return dispositivoService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Dispositivo getById(@PathVariable("deviceId") Long deviceId){
+        return dispositivoService.findById(deviceId);
     }
 
 }

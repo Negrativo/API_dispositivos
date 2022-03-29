@@ -14,6 +14,8 @@ import java.util.List;
 @Service
 public class DispositivoService {
 
+    private static final String NAO_ENCONTRADO = "Dispositivo não encontrado.";
+
     @Autowired
     DispositivoRepository dispositivoRepository;
 
@@ -27,7 +29,14 @@ public class DispositivoService {
         }
     }
 
+    @Transactional
     public List<Dispositivo> getAll() {
         return dispositivoRepository.findAll();
     }
+
+    @Transactional
+    public Dispositivo findById(Long deviceId) {
+        return dispositivoRepository.findById(deviceId).orElseThrow(() -> new IllegalArgumentException(NAO_ENCONTRADO));
+    }
+
 }
