@@ -18,31 +18,31 @@ public class DispositivosController {
     @Autowired
     DispositivoService dispositivoService;
 
-    @PostMapping()
+    @PostMapping("/registrar")
     public ResponseEntity<Object> save(@RequestBody @Valid DispositivoDto dispositivoDto) {
         var dispositivo = new Dispositivo();
         BeanUtils.copyProperties(dispositivoDto, dispositivo);
         return dispositivoService.save(dispositivo);
     }
 
-    @GetMapping
+    @GetMapping("/listar")
     public List<Dispositivo> getAll() {
         return dispositivoService.getAll();
     }
 
-    @GetMapping("/{deviceId}")
+    @GetMapping("/listar/{deviceId}")
     public ResponseEntity<Dispositivo> findById(@PathVariable Long deviceId){
         return dispositivoService.findById(deviceId);
     }
 
-    @PutMapping(value="/{deviceId}")
+    @PutMapping(value="/atualizar/{deviceId}")
     public ResponseEntity<Dispositivo> update(@PathVariable long deviceId,
                                           @RequestBody DispositivoDto dispositivoDto){
         return dispositivoService.updateById(deviceId, dispositivoDto);
 
     }
 
-    @DeleteMapping(value="/{deviceId}")
+    @DeleteMapping(value="/deletar/{deviceId}")
     public ResponseEntity<Object> deleteById(@PathVariable long deviceId){
         return dispositivoService.deleteById(deviceId);
 
