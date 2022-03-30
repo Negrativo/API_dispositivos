@@ -17,7 +17,7 @@ public class MQConfig {
 
     @Bean
     public Queue queue() {
-        return  new Queue(QUEUE);
+        return new Queue(QUEUE);
     }
 
     @Bean
@@ -35,7 +35,7 @@ public class MQConfig {
 
     @Bean
     public MessageConverter messageConverter() {
-        return  new Jackson2JsonMessageConverter();
+        return new Jackson2JsonMessageConverter();
     }
 
     @Bean

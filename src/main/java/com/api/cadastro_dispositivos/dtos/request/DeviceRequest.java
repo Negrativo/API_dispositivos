@@ -1,4 +1,4 @@
-package com.api.cadastro_dispositivos.dtos;
+package com.api.cadastro_dispositivos.dtos.request;
 
 
 import lombok.Data;
@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Data
-public class DispositivoDto {
+public class DeviceRequest {
 
     @NotBlank
     private String name;

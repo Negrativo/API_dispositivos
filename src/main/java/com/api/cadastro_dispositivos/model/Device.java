@@ -1,10 +1,8 @@
 package com.api.cadastro_dispositivos.model;
 
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Setter
@@ -12,11 +10,11 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "TB_DISPOSITIVOS")
-public class Dispositivo {
+public class Device {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long deviceId;
+    private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -33,16 +31,4 @@ public class Dispositivo {
     @Column(name = "longitude")
     private String longitude;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Dispositivo that = (Dispositivo) o;
-        return deviceId != null && Objects.equals(deviceId, that.deviceId);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }
